@@ -10,7 +10,7 @@
 # def sort_str(string):
 
 def sort_list(string):
-    x = list(string1)
+    x = list(string)
     x.sort()
     return x
 
@@ -25,6 +25,8 @@ def is_anagram(string1,string2):
     '''
     x = sort_list(string1)
     y = sort_list(string2)
+    print x 
+    print y
     if y is x: 
         return True
     else: 
