@@ -1,6 +1,7 @@
 # Notes + answers to exercises in Ramp Up dev-sprint4 
 # Ceceilia Allwein
 
+# woo a change for git!
 
 
 # Exercise 10.7 - anagrams
@@ -10,7 +11,7 @@
 # def sort_str(string):
 
 def sort_list(string):
-    x = list(string1)
+    x = list(string)
     x.sort()
     return x
 
