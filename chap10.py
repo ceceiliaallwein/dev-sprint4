@@ -35,6 +35,8 @@ print 'Exercise 10.7 - is_anagram'
 print is_anagram('moon','nomo')
 
 
+
+
 # Exercise 10.13 - interlocking words 
 
 print ''
@@ -85,7 +87,7 @@ def interlock1(word1,word2,filename):
         # Why is it not just a placeholder? 
         result = [None]*(len(x)+len(y))
         result[::2] = x
-        print result
+        # print result
         result[1::2] = y
         result = "".join(result)
         result = match_txt(result,filename)
@@ -99,13 +101,30 @@ def interlock1(word1,word2,filename):
     else: 
         return "Please try again with words of equal length."
 
-print 'Interlock 1: ' + str(interlock1('warmed','cold','words.txt'))
+print 'Interlock 1: ' + str(interlock1('shoe','cold','words.txt'))
 
+
+
+
+# This is me being ambitious and looking ahead to tuples, etc. 
 
 def interlock2(filename):
     '''Scans a text file for words of 
     equal length, then determines if they 
-    interlock to form a new word.'''
+    interlock to form a new word.
+
+    PROBLEMS 
+    The interlock loop ends when it finds two words of equal length.
+    (Solution: modify to add each result of interlock to output = [])
+
+    PUNCH LIST 
+    > Use bisection search to reduce processing time of match_txt
+    > Generalize to accommodate any number of words of any length
+    (Solution: modify the step, i.e. third parameter in the slice.)
+    > Generalize to accommodate words of any length
+    > Modify so that it tries interlocking words in range i in 
+    every possible combination. 
+    '''
     with open(filename) as fin:
         x = fin.readline()
         y = fin.readline()
@@ -119,24 +138,6 @@ def interlock2(filename):
             print y
         print output
         return output
-
-'''
-PROBLEMS 
-The interlock loop ends when it finds two words of equal length.
-(Solution: modify to add each result of interlock to output = [])
-
-PUNCH LIST 
-> Use bisection search to reduce processing time of match_txt
-> Generalize to accommodate any number of words of any length
-(Solution: modify the step, i.e. third parameter in the slice.)
-> Generalize to accommodate words of any length
-(Solution: I don't think the slice approach will work for words where 
-the difference in len is great than n+/-1 b/c you end up with None 
-types in result arrays in interlock. You could replace them--or delete--
-but ugh. There has to be a better way.)
-> Modify so that it tries interlocking words in range i in 
-every possible combination. 
-'''
 
 
 #print interlock2('words.txt')
